@@ -1,0 +1,20 @@
+{
+    "name": "kairos/typo3-ai-helper",
+    "type": "typo3-cms-extension",
+    "description": "AI Editorial Helper — local-LLM-powered TYPO3 backend assistant",
+    "license": "MIT",
+    "require": {
+        "typo3/cms-core": "^13.0",
+        "typo3/cms-backend": "^13.0"
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "ai_editorial_helper"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Kairos\\AiEditorialHelper\\": "Classes/"
+        }
+    }
+}
