@@ -15,6 +15,15 @@
             <trans-unit id="notification.category_added">
                 <source>Category added. Save the page to persist.</source>
             </trans-unit>
+            <trans-unit id="wizard.suggest_slug">
+                <source>Suggest slug</source>
+            </trans-unit>
+            <trans-unit id="wizard.suggesting">
+                <source>Suggesting…</source>
+            </trans-unit>
+            <trans-unit id="notification.slug_applied">
+                <source>Slug suggestion applied. Review and save.</source>
+            </trans-unit>
             <trans-unit id="notification.title">
                 <source>AI Editorial Helper</source>
             </trans-unit>

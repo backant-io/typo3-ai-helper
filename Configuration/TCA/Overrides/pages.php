@@ -4,9 +4,14 @@ declare(strict_types=1);
 
 defined('TYPO3') or die();
 
-use Kairos\AiEditorialHelper\Form\FieldWizard\GenerateMetaDescriptionWizard;
-use Kairos\AiEditorialHelper\Form\FieldWizard\SuggestCategoriesWizard;
-
+/*
+ * Wire AI Editorial Helper field wizards into the pages-edit form.
+ *
+ * This file modifies TCA only — node-registry registration lives in
+ * ext_localconf.php (see issue #11 for the explanation: TCA cache freezes
+ * the TCA array between requests, so $TYPO3_CONF_VARS side-effects from a
+ * TCA override file would be lost on every request after the first).
+ */
 (static function (): void {
     if (!isset($GLOBALS['TCA']['pages']['columns'])) {
         return;
@@ -41,15 +46,14 @@ use Kairos\AiEditorialHelper\Form\FieldWizard\SuggestCategoriesWizard;
         );
     }
 
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1714140100] = [
-        'nodeName' => 'aiEditorialHelperGenerateMeta',
-        'priority' => 40,
-        'class' => GenerateMetaDescriptionWizard::class,
-    ];
-
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1714140103] = [
-        'nodeName' => 'aiEditorialHelperSuggestCategories',
-        'priority' => 40,
-        'class' => SuggestCategoriesWizard::class,
-    ];
+    if (isset($columns['slug']['config'])) {
+        $columns['slug']['config']['fieldWizard'] = array_merge(
+            $columns['slug']['config']['fieldWizard'] ?? [],
+            [
+                'aiEditorialHelperSuggestSlug' => [
+                    'renderType' => 'aiEditorialHelperSuggestSlug',
+                ],
+            ],
+        );
+    }
 })();
