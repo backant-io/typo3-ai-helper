@@ -6,6 +6,7 @@ defined('TYPO3') or die();
 
 use Kairos\AiEditorialHelper\Form\FieldWizard\GenerateMetaDescriptionWizard;
 use Kairos\AiEditorialHelper\Form\FieldWizard\GenerateTeaserWizard;
+use Kairos\AiEditorialHelper\Form\FieldWizard\GenerateTranslationStubWizard;
 use Kairos\AiEditorialHelper\Form\FieldWizard\SuggestCategoriesWizard;
 use Kairos\AiEditorialHelper\Form\FieldWizard\SuggestSlugWizard;
 
@@ -43,4 +44,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1714140103] = [
     'nodeName' => 'aiEditorialHelperSuggestCategories',
     'priority' => 40,
     'class' => SuggestCategoriesWizard::class,
+];
+
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1714140104] = [
+    'nodeName' => 'aiEditorialHelperTranslationStub',
+    'priority' => 40,
+    'class' => GenerateTranslationStubWizard::class,
 ];
