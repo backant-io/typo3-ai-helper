@@ -5,6 +5,7 @@ declare(strict_types=1);
 defined('TYPO3') or die();
 
 use Kairos\AiEditorialHelper\Form\FieldWizard\GenerateMetaDescriptionWizard;
+use Kairos\AiEditorialHelper\Form\FieldWizard\GenerateTeaserWizard;
 
 (static function (): void {
     if (!isset($GLOBALS['TCA']['pages']['columns'])) {
@@ -13,7 +14,7 @@ use Kairos\AiEditorialHelper\Form\FieldWizard\GenerateMetaDescriptionWizard;
 
     $columns = &$GLOBALS['TCA']['pages']['columns'];
 
-    $wizardConfig = [
+    $metaWizardConfig = [
         'aiEditorialHelperGenerate' => [
             'renderType' => 'aiEditorialHelperGenerateMeta',
         ],
@@ -25,7 +26,18 @@ use Kairos\AiEditorialHelper\Form\FieldWizard\GenerateMetaDescriptionWizard;
         }
         $columns[$field]['config']['fieldWizard'] = array_merge(
             $columns[$field]['config']['fieldWizard'] ?? [],
-            $wizardConfig,
+            $metaWizardConfig,
+        );
+    }
+
+    if (isset($columns['abstract']['config'])) {
+        $columns['abstract']['config']['fieldWizard'] = array_merge(
+            $columns['abstract']['config']['fieldWizard'] ?? [],
+            [
+                'aiEditorialHelperGenerateTeaser' => [
+                    'renderType' => 'aiEditorialHelperGenerateTeaser',
+                ],
+            ],
         );
     }
 
@@ -33,5 +45,11 @@ use Kairos\AiEditorialHelper\Form\FieldWizard\GenerateMetaDescriptionWizard;
         'nodeName' => 'aiEditorialHelperGenerateMeta',
         'priority' => 40,
         'class' => GenerateMetaDescriptionWizard::class,
+    ];
+
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1714140102] = [
+        'nodeName' => 'aiEditorialHelperGenerateTeaser',
+        'priority' => 40,
+        'class' => GenerateTeaserWizard::class,
     ];
 })();
