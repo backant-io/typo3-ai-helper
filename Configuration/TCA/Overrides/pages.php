@@ -59,4 +59,15 @@ defined('TYPO3') or die();
             ],
         );
     }
+
+    if (isset($columns['title']['config'])) {
+        $columns['title']['config']['fieldWizard'] = array_merge(
+            $columns['title']['config']['fieldWizard'] ?? [],
+            [
+                'aiEditorialHelperCheckQuality' => [
+                    'renderType' => 'aiEditorialHelperCheckQuality',
+                ],
+            ],
+        );
+    }
 })();

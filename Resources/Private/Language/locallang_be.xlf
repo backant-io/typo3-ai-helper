@@ -39,6 +39,15 @@
             <trans-unit id="notification.translation_applied">
                 <source>Translation stub generated. Review and refine before saving.</source>
             </trans-unit>
+            <trans-unit id="wizard.check_quality">
+                <source>Check page quality</source>
+            </trans-unit>
+            <trans-unit id="wizard.checking">
+                <source>Checking…</source>
+            </trans-unit>
+            <trans-unit id="quality.no_issues">
+                <source>No issues found.</source>
+            </trans-unit>
             <trans-unit id="notification.title">
                 <source>AI Editorial Helper</source>
             </trans-unit>

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 defined('TYPO3') or die();
 
+use Kairos\AiEditorialHelper\Form\FieldWizard\CheckQualityWizard;
 use Kairos\AiEditorialHelper\Form\FieldWizard\GenerateMetaDescriptionWizard;
 use Kairos\AiEditorialHelper\Form\FieldWizard\GenerateTeaserWizard;
 use Kairos\AiEditorialHelper\Form\FieldWizard\GenerateTranslationStubWizard;
@@ -50,4 +51,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1714140104] = [
     'nodeName' => 'aiEditorialHelperTranslationStub',
     'priority' => 40,
     'class' => GenerateTranslationStubWizard::class,
+];
+
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1714140105] = [
+    'nodeName' => 'aiEditorialHelperCheckQuality',
+    'priority' => 40,
+    'class' => CheckQualityWizard::class,
 ];
