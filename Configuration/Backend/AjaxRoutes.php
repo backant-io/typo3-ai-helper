@@ -6,6 +6,7 @@ use Kairos\AiEditorialHelper\Controller\Ajax\CategorySuggesterAjaxController;
 use Kairos\AiEditorialHelper\Controller\Ajax\MetaDescriptionAjaxController;
 use Kairos\AiEditorialHelper\Controller\Ajax\SlugSuggesterAjaxController;
 use Kairos\AiEditorialHelper\Controller\Ajax\TeaserAjaxController;
+use Kairos\AiEditorialHelper\Controller\Ajax\TranslationStubAjaxController;
 
 return [
     'ai_editorial_helper_meta' => [
@@ -23,5 +24,9 @@ return [
     'ai_editorial_helper_teaser' => [
         'path' => '/ai-editorial-helper/teaser',
         'target' => TeaserAjaxController::class . '::generate',
+    ],
+    'ai_editorial_helper_translate' => [
+        'path' => '/ai-editorial-helper/translate',
+        'target' => TranslationStubAjaxController::class . '::generate',
     ],
 ];

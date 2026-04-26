@@ -30,6 +30,15 @@
             <trans-unit id="notification.teaser_applied">
                 <source>Teaser generated. Review and save.</source>
             </trans-unit>
+            <trans-unit id="wizard.translate_stub">
+                <source>Generate translation stub</source>
+            </trans-unit>
+            <trans-unit id="wizard.translating">
+                <source>Translating…</source>
+            </trans-unit>
+            <trans-unit id="notification.translation_applied">
+                <source>Translation stub generated. Review and refine before saving.</source>
+            </trans-unit>
             <trans-unit id="notification.title">
                 <source>AI Editorial Helper</source>
             </trans-unit>
