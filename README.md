@@ -2,7 +2,7 @@
 
 Local-LLM-powered editorial assistant for TYPO3 v13. Generates SEO metadata,
 tags, teasers, slugs, DE↔EN translation stubs, and content quality flags using
-Ollama on the local machine. No data leaves the server.
+LM Studio on the local machine. No data leaves the server.
 
 Built autonomously by [kairos](https://backant.io).
 
@@ -17,6 +17,7 @@ Built autonomously by [kairos](https://backant.io).
 
 ## Runtime
 
-- Ollama running locally (`ollama serve`)
-- Default model: `qwen2.5:7b-instruct` (fallback: `llama3.1:8b-instruct-q4_K_M`)
-- Endpoint: `http://localhost:11434` (configurable per extension setting)
+- [LM Studio](https://lmstudio.ai/) running locally with the local server enabled
+- Default model: `qwen2.5-7b-instruct` (fallback: `llama3.1:8b-instruct-q4_K_M`)
+- Endpoint: `http://localhost:1234/v1` (OpenAI-compatible API, configurable per extension setting)
+- Load the model into LM Studio's UI before using the extension; the extension surfaces a clear backend message if no model is loaded.
