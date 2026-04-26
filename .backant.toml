@@ -1,0 +1,26 @@
+# .backant.toml — Agent behavior configuration
+
+[permissions]
+merge = true
+merge_migrations = false
+create_issues = true
+create_epics = true
+strategic_work = true
+modify_dependencies = true
+modify_ci = true
+modify_infrastructure = false
+security_fixes = true
+
+[scope]
+include = []
+exclude = ["terraform/**", "*.tfvars"]
+
+[behavior]
+max_cycles_per_day = 100
+max_cost_per_cycle = 15.0
+min_sleep = 10
+deploy_verification = "full"
+
+[branches]
+target = "main"
+prefix = "kairos/"
