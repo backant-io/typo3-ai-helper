@@ -15,6 +15,12 @@
             <trans-unit id="notification.category_added">
                 <source>Category added. Save the page to persist.</source>
             </trans-unit>
+            <trans-unit id="wizard.generate_teaser">
+                <source>Generate teaser</source>
+            </trans-unit>
+            <trans-unit id="notification.teaser_applied">
+                <source>Teaser generated. Review and save.</source>
+            </trans-unit>
             <trans-unit id="notification.title">
                 <source>AI Editorial Helper</source>
             </trans-unit>
