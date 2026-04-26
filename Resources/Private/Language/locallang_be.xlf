@@ -9,11 +9,22 @@
             <trans-unit id="wizard.generating">
                 <source>Generating…</source>
             </trans-unit>
+<<<<<<< HEAD
             <trans-unit id="wizard.suggest_categories">
                 <source>Suggest categories</source>
             </trans-unit>
             <trans-unit id="notification.category_added">
                 <source>Category added. Save the page to persist.</source>
+=======
+            <trans-unit id="wizard.suggest_slug">
+                <source>Suggest slug</source>
+            </trans-unit>
+            <trans-unit id="wizard.suggesting">
+                <source>Suggesting…</source>
+            </trans-unit>
+            <trans-unit id="notification.slug_applied">
+                <source>Slug suggestion applied. Review and save.</source>
+>>>>>>> bef4846 (Add URL slug suggester (#4))
             </trans-unit>
             <trans-unit id="notification.title">
                 <source>AI Editorial Helper</source>
