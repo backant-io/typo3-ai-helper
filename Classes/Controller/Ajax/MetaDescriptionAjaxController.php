@@ -29,7 +29,10 @@ final class MetaDescriptionAjaxController
 
     public function generate(ServerRequestInterface $request): ResponseInterface
     {
-        $params = $request->getParsedBody() + $request->getQueryParams();
+        // ServerRequestInterface::getParsedBody() returns null on GET requests
+        // (and on POST without a parseable body). PHP 8.x raises TypeError on
+        // null + array — so coalesce to [] before merging with query params.
+        $params = ($request->getParsedBody() ?? []) + $request->getQueryParams();
         $pageUid = (int)($params['pageUid'] ?? 0);
 
         if ($pageUid <= 0) {

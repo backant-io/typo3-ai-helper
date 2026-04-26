@@ -27,7 +27,9 @@ final class CategorySuggesterAjaxController
 
     public function suggest(ServerRequestInterface $request): ResponseInterface
     {
-        $params = $request->getParsedBody() + $request->getQueryParams();
+        // getParsedBody() is null for GET requests. Coalesce to avoid TypeError
+        // on the array merge below. (See issue #19.)
+        $params = ($request->getParsedBody() ?? []) + $request->getQueryParams();
         $pageUid = (int)($params['pageUid'] ?? 0);
 
         if ($pageUid <= 0) {
