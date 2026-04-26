@@ -9,6 +9,12 @@
             <trans-unit id="wizard.generating">
                 <source>Generating…</source>
             </trans-unit>
+            <trans-unit id="wizard.suggest_categories">
+                <source>Suggest categories</source>
+            </trans-unit>
+            <trans-unit id="notification.category_added">
+                <source>Category added. Save the page to persist.</source>
+            </trans-unit>
             <trans-unit id="notification.title">
                 <source>AI Editorial Helper</source>
             </trans-unit>
