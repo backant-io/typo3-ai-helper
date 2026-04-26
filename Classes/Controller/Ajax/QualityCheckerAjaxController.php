@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kairos\AiEditorialHelper\Controller\Ajax;
 
+use Doctrine\DBAL\ParameterType;
 use Kairos\AiEditorialHelper\Service\QualityChecker;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -76,8 +77,8 @@ final class QualityCheckerAjaxController
             ->select('header', 'subheader', 'bodytext', 'header_layout')
             ->from('tt_content')
             ->where(
-                $qb->expr()->eq('pid', $qb->createNamedParameter($pageUid, \PDO::PARAM_INT)),
-                $qb->expr()->eq('sys_language_uid', $qb->createNamedParameter(0, \PDO::PARAM_INT)),
+                $qb->expr()->eq('pid', $qb->createNamedParameter($pageUid, ParameterType::INTEGER)),
+                $qb->expr()->eq('sys_language_uid', $qb->createNamedParameter(0, ParameterType::INTEGER)),
             )
             ->orderBy('sorting', 'ASC')
             ->executeQuery()

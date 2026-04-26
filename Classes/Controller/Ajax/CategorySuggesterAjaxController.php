@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kairos\AiEditorialHelper\Controller\Ajax;
 
+use Doctrine\DBAL\ParameterType;
 use Kairos\AiEditorialHelper\Exception\LmStudioException;
 use Kairos\AiEditorialHelper\Service\CategorySuggesterService;
 use Psr\Http\Message\ResponseInterface;
@@ -70,8 +71,8 @@ final class CategorySuggesterAjaxController
             ->select('header', 'subheader', 'bodytext')
             ->from('tt_content')
             ->where(
-                $qb->expr()->eq('pid', $qb->createNamedParameter($pageUid, \PDO::PARAM_INT)),
-                $qb->expr()->eq('sys_language_uid', $qb->createNamedParameter(0, \PDO::PARAM_INT)),
+                $qb->expr()->eq('pid', $qb->createNamedParameter($pageUid, ParameterType::INTEGER)),
+                $qb->expr()->eq('sys_language_uid', $qb->createNamedParameter(0, ParameterType::INTEGER)),
             )
             ->orderBy('sorting', 'ASC')
             ->setMaxResults(20)
