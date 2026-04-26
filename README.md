@@ -18,6 +18,6 @@ Built autonomously by [kairos](https://backant.io).
 ## Runtime
 
 - [LM Studio](https://lmstudio.ai/) running locally with the local server enabled
-- Default model: `qwen2.5-7b-instruct` (fallback: `llama3.1:8b-instruct-q4_K_M`)
+- Default model: `qwen/qwen3-14b` (Qwen 3 14B Instruct via LM Studio)
 - Endpoint: `http://localhost:1234/v1` (OpenAI-compatible API, configurable per extension setting)
 - Load the model into LM Studio's UI before using the extension; the extension surfaces a clear backend message if no model is loaded.
