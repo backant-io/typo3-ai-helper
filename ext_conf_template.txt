@@ -1,0 +1,11 @@
+# cat=connection; type=string; label=LM Studio endpoint URL: OpenAI-compatible base URL exposed by LM Studio (e.g. http://localhost:1234/v1)
+endpoint = http://localhost:1234/v1
+
+# cat=connection; type=string; label=Default model identifier: Model name as listed by LM Studio's /v1/models endpoint (e.g. qwen/qwen3-14b)
+model = qwen/qwen3-14b
+
+# cat=connection; type=int+; label=Request timeout (seconds): How long to wait for an LM Studio response before giving up
+timeout = 60
+
+# cat=connection; type=string; label=API key (optional): Sent as Bearer token if non-empty. LM Studio does not require one for local use; leave blank unless your setup needs it.
+apiKey =

@@ -4,17 +4,42 @@
     "description": "AI Editorial Helper — local-LLM-powered TYPO3 backend assistant",
     "license": "MIT",
     "require": {
+        "php": "^8.2",
         "typo3/cms-core": "^13.0",
         "typo3/cms-backend": "^13.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5",
+        "typo3/testing-framework": "^8.0",
+        "friendsofphp/php-cs-fixer": "^3.50",
+        "phpstan/phpstan": "^1.10"
+    },
     "extra": {
         "typo3/cms": {
-            "extension-key": "ai_editorial_helper"
+            "extension-key": "ai_editorial_helper",
+            "web-dir": ".Build/Web"
         }
     },
     "autoload": {
         "psr-4": {
             "Kairos\\AiEditorialHelper\\": "Classes/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kairos\\AiEditorialHelper\\Tests\\": "Tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "typo3/cms-composer-installers": true,
+            "typo3/class-alias-loader": true
+        }
+    },
+    "scripts": {
+        "test:unit": "phpunit -c Tests/UnitTests.xml",
+        "test:lint": "php-cs-fixer fix --dry-run --diff",
+        "test:stan": "phpstan analyse Classes Tests --level=6"
     }
 }

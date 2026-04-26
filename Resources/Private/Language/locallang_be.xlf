@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+    <file source-language="en" datatype="plaintext" original="messages" date="2026-04-26T00:00:00Z" product-name="ai_editorial_helper">
+        <header/>
+        <body>
+            <trans-unit id="wizard.generate">
+                <source>Generate with AI</source>
+            </trans-unit>
+            <trans-unit id="wizard.generating">
+                <source>Generating…</source>
+            </trans-unit>
+            <trans-unit id="notification.title">
+                <source>AI Editorial Helper</source>
+            </trans-unit>
+            <trans-unit id="notification.success">
+                <source>Meta description and SEO title generated. Review and save.</source>
+            </trans-unit>
+            <trans-unit id="notification.unreachable">
+                <source>LM Studio is not reachable. Start LM Studio and load the configured model, then retry.</source>
+            </trans-unit>
+            <trans-unit id="notification.no_model">
+                <source>No model is loaded in LM Studio. Load the configured model in the LM Studio UI and retry.</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
