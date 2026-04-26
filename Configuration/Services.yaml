@@ -6,3 +6,14 @@ services:
 
   Kairos\AiEditorialHelper\:
     resource: '../Classes/*'
+
+  # AJAX controllers must be fetchable from the container at request time.
+  Kairos\AiEditorialHelper\Controller\Ajax\:
+    resource: '../Classes/Controller/Ajax/*'
+    public: true
+
+  # Form node registry instantiates field wizards via GeneralUtility::makeInstance,
+  # which uses the container only for public services in v13.
+  Kairos\AiEditorialHelper\Form\FieldWizard\:
+    resource: '../Classes/Form/FieldWizard/*'
+    public: true
