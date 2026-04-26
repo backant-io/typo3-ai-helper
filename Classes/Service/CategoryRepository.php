@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kairos\AiEditorialHelper\Service;
 
+use Doctrine\DBAL\ParameterType;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 
 /**
@@ -32,7 +33,7 @@ class CategoryRepository
             ->select('uid', 'title', 'description')
             ->from(self::TABLE)
             ->where(
-                $qb->expr()->eq('parent', $qb->createNamedParameter(0, \PDO::PARAM_INT)),
+                $qb->expr()->eq('parent', $qb->createNamedParameter(0, ParameterType::INTEGER)),
             )
             ->orderBy('sorting', 'ASC')
             ->addOrderBy('title', 'ASC')
