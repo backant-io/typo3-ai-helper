@@ -7,6 +7,7 @@
  */
 import AjaxRequest from "@typo3/core/ajax/ajax-request.js";
 import Notification from "@typo3/backend/notification.js";
+import { extractAjaxErrorMessage } from "@kairos/ai-editorial-helper/ajax-error.js";
 
 const SELECTOR = ".ai-editorial-helper-generate-teaser";
 const BUSY_CLASS = "ai-editorial-helper-busy";
@@ -84,7 +85,7 @@ async function handleClick(event) {
       );
     }
   } catch (err) {
-    const message = err && err.message ? err.message : String(err);
+    const message = await extractAjaxErrorMessage(err);
     Notification.error("AI Editorial Helper", message);
   } finally {
     button.classList.remove(BUSY_CLASS);
